@@ -329,7 +329,7 @@ export function startGame(
   });
 
   game.on(TRIGGER_ENEMY_WAVE_START, (wave: number) => {
-    const text = new PIXI.Text(`Oleada ${wave + 1}`, titleTextStyle);
+    const text = new PIXI.Text(`Wave ${wave + 1}`, titleTextStyle);
     text.anchor.x = 0.5;
     text.anchor.y = 0.5;
     text.position.x = SCREEN_WIDTH / 2;
