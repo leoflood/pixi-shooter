@@ -5,7 +5,7 @@
     "title": "Level 1 title",
     "description": "Level description",
     "winMessage": "You win!",
-    "finalBoss": "enemy1",
+    "finalBoss": "char2",
     "music": "music-epic",
     "enemyWaves": [
       {
@@ -37,7 +37,7 @@
     "title": "Level 2 title",
     "description": "Level description",
     "winMessage": "You win!",
-    "finalBoss": "enemy1",
+    "finalBoss": "char3",
     "music": "music-epic",
     "enemyWaves": [
       {

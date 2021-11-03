@@ -585,7 +585,6 @@ export default class Game extends Eventable {
     team: number,
     uuid?: string
   ) {
-    console.log('key', agentKey);
     return new agentsMap[agentKey]({
       team,
       position,
