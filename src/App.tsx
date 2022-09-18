@@ -21,18 +21,13 @@ export default function App() {
     >
       <Router>
         <Routes>
+          <Route path="/pixi-shooter" element={<IndexView />} />
           <Route path="/pixi-shooter/main-menu" element={<MainMenuView />} />
-
           <Route
             path="/pixi-shooter/levels-menu"
             element={<LevelsMenuView />}
           />
-
           <Route path="/pixi-shooter/game/:levelKey" element={<GameView />} />
-
-          <Route path="/pixi-shooter/main-menu" element={<MainMenuView />} />
-
-          <Route path="/pixi-shooter" element={<IndexView />} />
         </Routes>
       </Router>
     </div>
