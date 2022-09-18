@@ -16,7 +16,7 @@ export default function GameView() {
 
     startGame(levelKey, appContext.isTouch, () => {
       // When the game ends, it will redirect to levels menu
-      window.location.replace("/pixi-shooter/levels-menu");
+      window.location.replace("/?goTo=levels-menu");
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [levelKey]);

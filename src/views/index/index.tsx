@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import BackButton from "../../components/back-button";
 import sounds from "../../game/sounds";
 import "./style.css";
@@ -9,7 +9,15 @@ export default function IndexView() {
 
   const navigate = useNavigate();
 
+  const { search } = useLocation();
+  const goTo = new URLSearchParams(search).get("goTo");
+
   useEffect(() => {
+    if (goTo) {
+      navigate(`/pixi-shooter/${goTo}`);
+      return;
+    }
+
     const music = sounds["music-intro-2"];
     let timeout = setTimeout(() => null);
 
@@ -26,7 +34,7 @@ export default function IndexView() {
       clearTimeout(timeout);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [goTo]);
 
   if (showLoading) {
     return <h2 style={{ color: "#feda4a" }}>Loading...</h2>;
