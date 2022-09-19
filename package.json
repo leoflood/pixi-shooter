@@ -1,24 +1,28 @@
 {
   "name": "pixi-shooter-vite",
+  "homepage": "https://leoflood.github.io/pixi-shooter/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router": "^6.4.0",
-    "react-router-dom": "^6.4.0",
     "axios": "^0.21.4",
+    "gh-pages": "^4.0.0",
     "howler": "^2.2.3",
     "is-touch-device": "^1.0.1",
     "pixi-game-camera": "^1.0.2",
     "pixi-virtual-joystick": "^0.4.1",
     "pixi.js": "^6.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.4.0",
+    "react-router-dom": "^6.4.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
