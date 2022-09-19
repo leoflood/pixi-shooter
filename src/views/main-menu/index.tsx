@@ -6,7 +6,7 @@ export default function MainMenuView() {
     <div className="dialog space-around">
       <h1 className="title">Game Title</h1>
 
-      <Link className="play-button" to="/pixi-shooter/levels-menu">
+      <Link className="play-button" to="/levels-menu">
         Play
       </Link>
     </div>

@@ -17,7 +17,7 @@ export default function GameView() {
     startGame(levelKey, appContext.isTouch, () => {
       // When the game ends, it will redirect to levels menu
       // We use window.location.replace here to remove all previous data
-      window.location.replace("/?goTo=levels-menu");
+      window.location.replace("/#/levels-menu");
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [levelKey]);

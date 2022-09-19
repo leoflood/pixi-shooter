@@ -19,7 +19,7 @@ export default function LevelsMenuView() {
         <div className="back-button-container">
           <BackButton
             className="back-button"
-            onClick={() => navigate("/pixi-shooter/main-menu")}
+            onClick={() => navigate("/main-menu")}
           />
         </div>
 
@@ -73,7 +73,7 @@ export default function LevelsMenuView() {
                 disabled={disabled}
                 className="level"
                 key={lk}
-                onClick={() => navigate(`/pixi-shooter/game/${lk}`)}
+                onClick={() => navigate(`/game/${lk}`)}
               >
                 <div className="level-text-container">
                   <div className="level-title-container">
