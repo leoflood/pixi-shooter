@@ -2,8 +2,8 @@
   "level1": {
     "playerAgent": "char1",
     "levelOrder": 1,
-    "title": "Level 1 title",
-    "description": "Level description",
+    "title": "Level 1",
+    "description": "Simple enemies will appear, will you beat them?",
     "winMessage": "You win!",
     "finalBoss": "char2",
     "music": "music-epic",
@@ -34,8 +34,8 @@
   "level2": {
     "playerAgent": "char1",
     "levelOrder": 2,
-    "title": "Level 2 title",
-    "description": "Level description",
+    "title": "Level 2",
+    "description": "Stronger enemies will appear, will you beat them?",
     "winMessage": "You win!",
     "finalBoss": "char3",
     "music": "music-epic",

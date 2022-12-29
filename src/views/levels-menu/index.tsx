@@ -41,16 +41,20 @@ export default function LevelsMenuView() {
           <ul className="skills">
             <b>Skills</b>
             <li>
-              <b>Q</b> Skill 1 description.
+              <b>Q</b> Creates 5 clones that can use all your skills but they
+              can only resist one shot.
             </li>
             <li>
-              <b>E</b> Skill 2 description.
+              <b>E</b> Heals the player and increase their speed for a few
+              seconds.
             </li>
             <li>
-              <b>R</b> Skill 3 description.
+              <b>R</b> Makes the floor tremble, damaging and paralyzing all
+              enemies.
             </li>
             <li>
-              <b>T</b> Skill 4 description.
+              <b>T</b> Creates a shield that returns all the projectiles
+              received for a few seconds.
             </li>
           </ul>
         </div>

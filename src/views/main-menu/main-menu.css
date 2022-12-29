@@ -11,6 +11,7 @@
   text-decoration: none;
   border-radius: 5%;
   padding: 1vmin 3vmin;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .play-button:hover {

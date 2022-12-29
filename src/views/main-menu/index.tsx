@@ -4,7 +4,7 @@ import "../main-menu/main-menu.css";
 export default function MainMenuView() {
   return (
     <div className="dialog space-around">
-      <h1 className="title">Game Title</h1>
+      <h1 className="title">Pixi Shooter</h1>
 
       <Link className="play-button" to="/levels-menu">
         Play

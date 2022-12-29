@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+
 import BackButton from "../../components/back-button";
 import sounds from "../../game/sounds";
 import "./style.css";
@@ -18,7 +19,7 @@ export default function IndexView() {
       music.play();
       timeout = setTimeout(() => {
         navigate("/main-menu");
-      }, 60000);
+      }, 20000);
     });
 
     return () => {
@@ -45,18 +46,15 @@ export default function IndexView() {
       <section className="star-wars">
         <div className="crawl">
           <div className="title">
-            <h1>Game Title</h1>
+            <h1>Pixi Shooter</h1>
           </div>
 
-          <p>Game description 1</p>
-
-          <p>Game description 2</p>
-
-          <p>Game description 3</p>
-
-          <p>Game description 4</p>
-
-          <p>Game description 5</p>
+          <p>
+            This is a 2D demo shooter developed with Typescript, Pixi JS and
+            React that uses the composite design pattern. You will try to
+            survive from the enemies that will appear and use your skills
+            against them.
+          </p>
         </div>
       </section>
     </div>
