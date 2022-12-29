@@ -1,0 +1,7 @@
+.created-by a {
+  color: white;
+}
+
+.created-by a:hover {
+  color: gold;
+}
