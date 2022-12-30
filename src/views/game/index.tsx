@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { levelKey } from "../../game/interfaces";
 import { startGame } from "../../game/start-game";
 import AppContext from "../../utils/app-context";
+import { getUrl } from "../../utils/utils";
 import "../game/game.css";
 
 export default function GameView() {
@@ -17,7 +18,7 @@ export default function GameView() {
     startGame(levelKey, appContext.isTouch, () => {
       // When the game ends, it will redirect to levels menu
       // We use window.location.replace here to remove all previous data
-      window.location.replace("/pixi-shooter/#/levels-menu");
+      window.location.replace(getUrl("#/levels-menu"));
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [levelKey]);
