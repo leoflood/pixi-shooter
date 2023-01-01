@@ -442,10 +442,10 @@ export default class Game extends Eventable {
     // const recoil =
     //  ((Math.random() - 0.5) * Math.min(15, bulletImprecision)) / 5;
 
+    const agentRotation = agent.getRotationTo(x, y);
     agent.lookAt(x, y);
 
     agent.getWeapons().forEach((w) => {
-      console.log(w);
       if (w.shoot()) {
         const wRotation = w.getRotationTo(x, y);
         this.shoot(agent, w, wRotation);
@@ -460,29 +460,21 @@ export default class Game extends Eventable {
 
     agent.getMeleeWeapons().forEach((w) => {
       if (w.meleeAttack()) {
-        const MELEE_DISTANCE = 80;
+
+        const attackX = Math.cos(agentRotation) * w.attackLength;
+        const attackY = Math.sin(agentRotation) * w.attackLength;
 
         this.agents.forEach((a) => {
           if (agent.team === a.team) return;
 
-          const conditions = [
-            agent.isCollidingWith(a, agent.position.x + MELEE_DISTANCE),
-            agent.isCollidingWith(a, agent.position.x - MELEE_DISTANCE),
+          if (
             agent.isCollidingWith(
               a,
-              undefined,
-              agent.position.y + MELEE_DISTANCE
-            ),
-            agent.isCollidingWith(
-              a,
-              undefined,
-              agent.position.y - MELEE_DISTANCE
-            ),
-          ];
-
-          conditions.forEach((c) => {
-            if (c) this.hurtTargetableEntity(a, 30, agent);
-          });
+              agent.position.x + attackX,
+              agent.position.y + attackY
+            )
+          )
+            this.hurtTargetableEntity(a, 30, agent);
         });
       }
     });

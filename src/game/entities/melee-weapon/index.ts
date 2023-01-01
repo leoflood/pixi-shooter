@@ -8,6 +8,7 @@ export default class MeleeWeapon extends Entity {
 
   public isMeleeWeapon: boolean;
   public lastRoundTime: number;
+  public attackLength = 40;
 
   constructor(props: IEntity) {
     super(props);
