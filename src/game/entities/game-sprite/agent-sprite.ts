@@ -7,6 +7,7 @@ import textures from '../../textures';
 import Vector2D from '../../utils/vector-2d';
 import Agent from '../agent';
 import { agentsZIndex } from '../../pixi-z-index';
+import { PLAYER_ID } from '../../constants';
 
 const HP_BAR_WIDTH = 56;
 const HP_BAR_HEIGHT = 10;
@@ -40,7 +41,7 @@ export default class AgentSprite extends Entity {
     this.agent = agent;
 
     // The player has not hp bar
-    if (this.agent.uuid !== 'player') {
+    if (this.agent.uuid !== PLAYER_ID) {
       this.createHpBar();
     }
   }

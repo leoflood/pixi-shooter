@@ -18,6 +18,7 @@ import Item from './entities/item';
 import agentsMap, { agentKey } from './entities/agent/agents-map';
 import TargetableEntity from './entities/targetable-entity';
 import Shield from './shield';
+import { PLAYER_ID } from './constants';
 
 export interface IGame {
   width: number;
@@ -94,7 +95,7 @@ export default class Game extends Eventable {
       this.level.levelData.playerAgent,
       new Vector2D(this.width / 2, this.height / 2),
       1,
-      'player'
+      PLAYER_ID
     );
 
     // Adding the player
@@ -116,7 +117,7 @@ export default class Game extends Eventable {
   public tick() {
     this.update(0);
 
-    const player = this.getAgentByUuid('player');
+    const player = this.getAgentByUuid(PLAYER_ID);
 
     if (!this.__isStopped && player && !player.isDead) {
       setTimeout(() => {
@@ -314,7 +315,7 @@ export default class Game extends Eventable {
       }
 
       // The player will not collide with his allies
-      if (agent.uuid === 'player' && agent.team === otherAgent.team) {
+      if (agent.uuid === PLAYER_ID && agent.team === otherAgent.team) {
         continue;
       }
 

@@ -24,6 +24,7 @@ import {
 import { getUserData, setUserData } from "../utils/local-storage";
 import levels from "./levels.json";
 import Agent from "./entities/agent";
+import { PLAYER_ID } from "./constants";
 
 export function startGame(
   levelKey: levelKey,
@@ -253,8 +254,8 @@ export function startGame(
   game.on(TRIGGER_ADD_ENTITY, (entity: Entity) => {
     entity.forEach((e) => {
       // If a new player has added, we will update the player reference
-      if (e.uuid === "player") {
-        player = game.getAgentByUuid("player");
+      if (e.uuid === PLAYER_ID) {
+        player = game.getAgentByUuid(PLAYER_ID);
         fetchPlayerSkills(player);
       }
 
