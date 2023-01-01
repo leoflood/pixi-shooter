@@ -18,8 +18,6 @@ export interface IAgentSprite extends IEntity {
   agent: string;
 }
 
-export interface IWeapon extends IEntity {}
-
 export interface IWeaponSprite extends IEntity {
   width: number;
   height: number;

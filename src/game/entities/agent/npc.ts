@@ -32,7 +32,7 @@ export default class NPC extends Agent {
 
     // Attack
     if (closerEnemy && !closerEnemy.isDead) {
-      game.tryToShotTo(this, closerEnemy.position.x, closerEnemy.position.y);
+      game.tryToAttackTo(this, closerEnemy.position.x, closerEnemy.position.y);
       this.skills.forEach((s) => s.tryToExecute(game));
     }
   }

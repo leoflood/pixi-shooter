@@ -1,24 +1,24 @@
-import Agent from './entities/agent';
-import { levelKey } from './interfaces';
-import Weapon from './entities/weapon';
-import Eventable from './eventable';
-import Level from './level';
-import Projectile from './entities/projectile';
-import projectilesMap from './entities/projectile/projectiles-map';
-import Wall from './entities/wall';
-import Vector2D from './utils/vector-2d';
+import Agent from "./entities/agent";
+import { levelKey } from "./interfaces";
+import Weapon from "./entities/weapon";
+import Eventable from "./eventable";
+import Level from "./level";
+import Projectile from "./entities/projectile";
+import projectilesMap from "./entities/projectile/projectiles-map";
+import Wall from "./entities/wall";
+import Vector2D from "./utils/vector-2d";
 import {
   TRIGGER_ADD_ENTITY,
   TRIGGER_ENEMY_WAVE_START,
   TRIGGER_GAME_FINISH,
   TRIGGER_REMOVE_ENTITY,
   TRIGGER_SHIELD_EFFECT,
-} from './game-triggers';
-import Item from './entities/item';
-import agentsMap, { agentKey } from './entities/agent/agents-map';
-import TargetableEntity from './entities/targetable-entity';
-import Shield from './shield';
-import { PLAYER_ID } from './constants';
+} from "./game-triggers";
+import Item from "./entities/item";
+import agentsMap, { agentKey } from "./entities/agent/agents-map";
+import TargetableEntity from "./entities/targetable-entity";
+import Shield from "./shield";
+import { PLAYER_ID } from "./constants";
 
 export interface IGame {
   width: number;
@@ -124,7 +124,7 @@ export default class Game extends Eventable {
         this.tick();
       }, this.tickLengthMs);
     } else {
-      this.trigger(TRIGGER_GAME_FINISH, ['You have been defeated']);
+      this.trigger(TRIGGER_GAME_FINISH, ["You have been defeated"]);
     }
   }
 
@@ -277,7 +277,7 @@ export default class Game extends Eventable {
       this.projectiles.splice(index, 1);
       this.trigger(TRIGGER_REMOVE_ENTITY, [p]);
     } else {
-      throw new Error('Projectile not found');
+      throw new Error("Projectile not found");
     }
   }
 
@@ -417,7 +417,7 @@ export default class Game extends Eventable {
       this.walls.splice(index, 1);
       this.trigger(TRIGGER_REMOVE_ENTITY, [w]);
     } else {
-      throw new Error('Wall not found');
+      throw new Error("Wall not found");
     }
   }
 
@@ -432,18 +432,20 @@ export default class Game extends Eventable {
       this.items.splice(index, 1);
       this.trigger(TRIGGER_REMOVE_ENTITY, [i]);
     } else {
-      throw new Error('Item not found');
+      throw new Error("Item not found");
     }
   }
 
-  public tryToShotTo(agent: Agent, x: number, y: number) {
+  public tryToAttackTo(agent: Agent, x: number, y: number) {
     // let bulletsInARound = 0;
     // let bulletImprecision = 0;
     // const recoil =
     //  ((Math.random() - 0.5) * Math.min(15, bulletImprecision)) / 5;
 
     agent.lookAt(x, y);
+
     agent.getWeapons().forEach((w) => {
+      console.log(w);
       if (w.shoot()) {
         const wRotation = w.getRotationTo(x, y);
         this.shoot(agent, w, wRotation);
@@ -453,6 +455,35 @@ export default class Game extends Eventable {
       } else if (w.secondsElapsedSinceLastRound > w.secondsDelayOfRound) {
         // bulletsInARound = 0;
         // bulletImprecision = Math.max(0, bulletImprecision / 1.2);
+      }
+    });
+
+    agent.getMeleeWeapons().forEach((w) => {
+      if (w.meleeAttack()) {
+        const MELEE_DISTANCE = 80;
+
+        this.agents.forEach((a) => {
+          if (agent.team === a.team) return;
+
+          const conditions = [
+            agent.isCollidingWith(a, agent.position.x + MELEE_DISTANCE),
+            agent.isCollidingWith(a, agent.position.x - MELEE_DISTANCE),
+            agent.isCollidingWith(
+              a,
+              undefined,
+              agent.position.y + MELEE_DISTANCE
+            ),
+            agent.isCollidingWith(
+              a,
+              undefined,
+              agent.position.y - MELEE_DISTANCE
+            ),
+          ];
+
+          conditions.forEach((c) => {
+            if (c) this.hurtTargetableEntity(a, 30, agent);
+          });
+        });
       }
     });
   }
