@@ -2,6 +2,7 @@ import Game from '../../game';
 import Shield from '../../shield';
 import Skill from '../../skill';
 import Vector2D from '../../utils/vector-2d';
+import MeleeWeapon from '../melee-weapon';
 import TargetableEntity, { ITargetableEntity } from '../targetable-entity';
 import Weapon from '../weapon';
 import { agentKey } from './agents-map';
@@ -103,6 +104,18 @@ export default class Agent extends TargetableEntity {
 
     this.forEach((e) => {
       if (e.isWeapon) {
+        weapons.push(e);
+      }
+    });
+
+    return weapons;
+  }
+
+  public getMeleeWeapons() {
+    const weapons: MeleeWeapon[] = [];
+
+    this.forEach((e) => {
+      if (e.isMeleeWeapon) {
         weapons.push(e);
       }
     });

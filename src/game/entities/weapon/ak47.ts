@@ -1,8 +1,8 @@
-import { IWeapon } from '../../interfaces';
+import { IEntity } from '../../interfaces';
 import Weapon from '../weapon';
 
 export default class Ak47 extends Weapon {
-  constructor(props: IWeapon) {
+  constructor(props: IEntity) {
     super(props);
 
     this.roundsPerMinute = 600;

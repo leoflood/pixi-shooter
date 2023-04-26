@@ -1,8 +1,8 @@
-import { IWeapon } from '../../interfaces';
 import Weapon from '.';
+import { IEntity } from '../../interfaces';
 
 export default class Shotgun extends Weapon {
-  constructor(props: IWeapon) {
+  constructor(props: IEntity) {
     super(props);
 
     this.roundsPerMinute = 65;

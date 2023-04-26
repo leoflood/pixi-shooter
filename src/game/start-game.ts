@@ -564,13 +564,13 @@ export function startGame(
     if (!isTouch && pointer.isPressed()) {
       game.addToActionQueue(() => {
         // Shoots
-        game.tryToShotTo(player, pointerX - camera.x, pointerY - camera.y);
+        game.tryToAttackTo(player, pointerX - camera.x, pointerY - camera.y);
         return true;
       });
     } else if (attackJoystickData.x !== 0 || attackJoystickData.y !== 0) {
       game.addToActionQueue(() => {
         // Shoots
-        game.tryToShotTo(
+        game.tryToAttackTo(
           player,
           player.position.x + attackJoystickData.x * player.width * 10,
           player.position.y + attackJoystickData.y * player.height * 10

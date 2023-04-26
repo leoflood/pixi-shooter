@@ -24,6 +24,7 @@ const textures: ITextures = {
   "weapon-ak47": PIXI.Texture.from(getUrl("/img/weapon-ak47.png")),
   "weapon-shotgun": PIXI.Texture.from(getUrl("/img/weapon-shotgun.png")),
   "weapon-power": PIXI.Texture.from(getUrl("/img/weapon-power.png")),
+  "weapon-axe": PIXI.Texture.from(getUrl("/img/weapon-axe.png")),
 
   // Walls
   pot: PIXI.Texture.from(getUrl("/img/pot.png")),
